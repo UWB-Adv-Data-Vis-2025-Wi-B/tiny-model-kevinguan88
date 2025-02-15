@@ -13,3 +13,7 @@ library('tidyverse') ; library('modeldata')
 
 This R Markdown document demonstrates my abilities to use models for data analysis using a data set collected on crickets.
 
+```{r load data, include = FALSE}
+data(crickets, package = "modeldata")
+names(crickets)
+```
