@@ -21,6 +21,7 @@ names(crickets)
 ## What is that sound?
 
 In this report, we examine what factors predict a cricket's chirp rate.
+The data set contains a total of 31 observations from 2 species of crickets. The measured temperature ranged from 17.2 to 30.4 degrees Celsius, and the mean rate of chirping was 72.89 chirps per min. 
 
 ```{r summary, echo= FALSE}
 summary(crickets)
