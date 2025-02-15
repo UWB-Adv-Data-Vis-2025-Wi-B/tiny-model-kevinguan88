@@ -17,3 +17,11 @@ This R Markdown document demonstrates my abilities to use models for data analys
 data(crickets, package = "modeldata")
 names(crickets)
 ```
+
+## What is that sound?
+
+In this report, we examine what factors predict a cricket's chirp rate.
+
+```{r summary, echo= FALSE}
+summary(crickets)
+```
