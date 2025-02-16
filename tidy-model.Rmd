@@ -62,3 +62,11 @@ summary.lm(species_lm)
 ```
 
 This graph shows the difference between the species of their average chirp rate for each temperature. The Niveus species on average has a lower chirp rate then the Exclaimationis species for each temperature. This second graph also models more of the variance than the first, given that we are separating the two species.
+
+## Interactions
+```{r species histogram, echo=FALSE}
+ggplot(crickets, aes(x = rate, fill = species)) +
+  geom_histogram(position = 'identity', alpha = 0.7, bins = 8) +
+  ggtitle("Distribution of the chirp rate of crickets") +
+  xlab('Chirp rate (per min.)')
+```
