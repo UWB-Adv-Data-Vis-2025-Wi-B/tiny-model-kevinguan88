@@ -1,0 +1,48 @@
+---
+title: "tidy-model"
+author: "Kevin Guan"
+date: "2025-02-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set
+library('tidyverse') ; library('modeldata')
+```
+## Introduction
+
+This R Markdown document demonstrates my abilities to use models for data analysis using a data set collected on crickets.
+
+```{r load data, include = FALSE}
+data(crickets, package = "modeldata")
+names(crickets)
+```
+
+## What is that sound?
+
+In this report, we examine what factors predict a cricket's chirp rate.
+The data set contains a total of 31 observations from 2 species of crickets. The measured temperature ranged from 17.2 to 30.4 degrees Celsius, and the mean rate of chirping was 72.89 chirps per min. 
+
+```{r summary, echo= FALSE}
+summary(crickets)
+ggplot(crickets, aes(x = rate)) +
+  geom_histogram(bins = 8) +
+  ggtitle("Distribution of the chirp rates of crickets") +
+  xlab('Chirp rate (per min.)')
+```
+
+## Temperature affects chirp rate
+```{r temp, echo=FALSE}
+ggplot(crickets, aes(x = temp, y = rate)) +
+  geom_point() +
+  geom_smooth(method = 'lm') +
+  ggtitle("Plot of temperature and chirp rate") +
+  ylab('Chirp rate (per min.)') +
+  xlab('Temperature (Celsius)')
+
+temp_lm <- lm(rate ~ temp, crickets)
+
+summary.lm(temp_lm)
+```
+
+Based on a scatter plot of temperature and chirping and a correlation test, it seems that as temperature increases one degree, the rate of chirping increases about 4.2 chirps per minute.
