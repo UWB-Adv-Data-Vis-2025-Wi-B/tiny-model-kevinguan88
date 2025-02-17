@@ -84,3 +84,21 @@ summary.lm(species_x_temp_lm)
 
 anova(species_lm, species_x_temp_lm)
 ```
+
+```{r diamonds, echo=FALSE}
+library(ggplot2)
+data("diamonds")
+
+# Fit the linear model
+model <- lm(price ~ carat + cut + color, data = diamonds)
+
+# Display summary
+summary(model)
+
+# Scatter plot of carat vs price with a regression line
+ggplot(diamonds, aes(x = carat, y = price, color = cut)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal() +
+  labs(title = "Diamond Price Prediction", x = "Carat", y = "Price (USD)")
+```
